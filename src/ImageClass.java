@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class ImageClass {
+	public static final String ext = "jpg";
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -52,10 +53,14 @@ public class ImageClass {
 				imagePixels.getRow(), BufferedImage.TYPE_INT_RGB);
 		for (int y = 0; y < imagePixels.getRow(); y++) {
 			for (int x = 0; x < imagePixels.getCol(); x++) {
+				if(imagePixels.get(y, x)<0)
+					imagePixels.set(y, x, 0);
+				if(imagePixels.get(y,x)>255)
+					imagePixels.set(y,x,255);
 				int value = -1 << 24;
-				value = 0xff000000 | (
-					imagePixels.get(y,x) << 16)
-						| (imagePixels.get(y,x) << 8) | (imagePixels.get(y,x));
+				value = 0xff000000 | (imagePixels.get(y, x) << 16)
+						| (imagePixels.get(y, x) << 8)
+						| (imagePixels.get(y, x));
 				image.setRGB(x, y, value);
 
 			}

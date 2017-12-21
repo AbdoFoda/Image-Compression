@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Compression extends Predictive {
+	
 	Compression(String img_path, Integer q_bits) {
 		this.q_bits = q_bits;
 		this.myMat = ImageClass.readImage(img_path);

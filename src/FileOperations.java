@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -47,10 +48,40 @@ public class FileOperations {
 			}
 			sc.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
 
+	public static boolean validFile(String filePath) {
+		File f = new File(filePath);
+		return f.exists();
+	}
+
+	public static boolean validDirectory(String dirPath) {
+		File f = new File(dirPath);
+		return f.isDirectory();
+	}
+
+	public static void newFile(String filePath) {
+		File f = new File(filePath);
+		try {
+			f.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static String fileExtension(String filename) {
+		int dotIndex = filename.lastIndexOf('.');
+		return (dotIndex == -1) ? "" : filename.substring(dotIndex + 1);
+	}
+
+	public static String childFile(String dir, String filePath, String newExt) {
+		String output = dir + "/";
+		int start = filePath.lastIndexOf('/') + 1, end = filePath
+				.lastIndexOf('.');
+		output += filePath.substring(start, end) +"1."+ newExt;
+		return output;
+	}
 }

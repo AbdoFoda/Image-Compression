@@ -5,6 +5,7 @@ public class Predictive {
 	protected Integer q_bits;
 	protected Integer min;
 	protected Integer max;
+	public static final String ext = "pq";
 
 	protected Integer predict(Integer a, Integer b, Integer c) {
 		if (a < Math.min(b, c))
@@ -14,7 +15,6 @@ public class Predictive {
 		return b + c - a;
 	}
 
-	
 	protected ArrayList<Pair<Integer, Integer>> quantize(Integer min,
 			Integer max, Integer bits) {
 		/*
