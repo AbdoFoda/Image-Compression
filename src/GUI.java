@@ -1,6 +1,6 @@
 public class GUI {
 	public static void main(String[] args) {
-		for (int i = 1; i < 20; ++i) {
+		for (int i = 10; i < 12; ++i) {
 			Compression p = new Compression("lena.jpg", i);
 			p.compress("lena.pc");
 
