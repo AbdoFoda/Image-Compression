@@ -18,11 +18,12 @@ public class Compression extends Predictive {
 			}
 		}
 		// we make quantization on the difference here (quantized difference):
-		Integer min = diff.min(), max = diff.max();
+		min = diff.min();
+		max = diff.max();
 		ArrayList<Pair<Integer, Integer>> ranges = quantize(min, max, q_bits);
 		for (int i = 0; i < diff.getRow(); ++i) {
 			for (int j = 0; j < diff.getCol(); ++j) {
-				diff.set(i, j, match(ranges, diff.get(i, j)));
+				diff.set(i, j, myMath.match(ranges, diff.get(i, j)));
 			}
 		}
 		// write on the file
