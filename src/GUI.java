@@ -23,14 +23,6 @@ public class GUI extends JPanel {
 	private JTextField bits;
 
 	public static void main(String[] args) {
-//		for(int i=1;i<12;++i){
-//			Compression c = new Compression("lena.jpg",i);
-//			c.compress("lena"+String.valueOf(i)+".pq");
-//			
-//			Decompression d = new Decompression("lena"+String.valueOf(i)+".pq");
-//			d.deCompress("lena"+String.valueOf(i)+".jpq");
-//		}
-		
 		GUI gui = new GUI();
 		gui.init_frame();
 		gui.action();
